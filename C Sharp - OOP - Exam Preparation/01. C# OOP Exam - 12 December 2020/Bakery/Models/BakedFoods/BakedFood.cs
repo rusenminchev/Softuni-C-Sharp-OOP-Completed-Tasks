@@ -13,9 +13,10 @@ namespace Bakery.Models.BakedFoods
         private int portion;
         private decimal price;
 
-        public BakedFood(string name, decimal price)
+        public BakedFood(string name, int portion, decimal price)
         {
             this.Name = name;
+            this.Portion = portion;
             this.Price = price;
         }
 
@@ -36,7 +37,7 @@ namespace Bakery.Models.BakedFoods
             }
         }
 
-        public virtual int Portion
+        public int Portion
         {
             get
             {

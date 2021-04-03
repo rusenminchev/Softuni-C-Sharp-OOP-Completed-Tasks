@@ -6,13 +6,11 @@ namespace Bakery.Models.BakedFoods
 {
     public class Cake : BakedFood
     {
-        private const int INITIAL_CAKE_PORTION = 245;
+        private const int InitialCakePortion = 245;
         public Cake(string name, decimal price)
-            : base(name, price)
+            : base(name, InitialCakePortion, price)
         {
 
         }
-
-        public override int Portion => INITIAL_CAKE_PORTION;
     }
 }

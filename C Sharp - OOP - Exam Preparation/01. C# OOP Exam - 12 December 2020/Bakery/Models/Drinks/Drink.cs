@@ -13,10 +13,11 @@ namespace Bakery.Models.Drinks
         private decimal price;
         private string brand;
 
-        public Drink(string name, int portion, string brand)
+        public Drink(string name, int portion, decimal price, string brand)
         {
             this.Name = name;
             this.Portion = portion;
+            this.Price = price;
             this.Brand = brand;
         }
 
@@ -53,7 +54,7 @@ namespace Bakery.Models.Drinks
                 this.portion = value;
             }
         }
-        public virtual decimal Price
+        public decimal Price
         {
             get
             {
