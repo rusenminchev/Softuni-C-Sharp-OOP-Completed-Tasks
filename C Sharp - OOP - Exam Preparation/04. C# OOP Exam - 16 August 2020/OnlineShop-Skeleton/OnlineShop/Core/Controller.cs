@@ -26,6 +26,7 @@ namespace OnlineShop.Core
         {
             IComputer computer = this.computers.FirstOrDefault(c => c.Id == id);
 
+            //Big mistake. Forgot to make this validation and that caused NullReference Exception.
             if (computer != null)
             {
                 throw new ArgumentException("Computer with this id already exists.");
