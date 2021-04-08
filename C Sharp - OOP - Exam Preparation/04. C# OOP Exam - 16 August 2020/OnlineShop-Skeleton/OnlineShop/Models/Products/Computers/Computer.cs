@@ -23,6 +23,7 @@ namespace OnlineShop.Models.Products.Computers
         public IReadOnlyCollection<IComponent> Components => (IReadOnlyCollection<IComponent>)this.components;
         public IReadOnlyCollection<IPeripheral> Peripherals => (IReadOnlyCollection<IPeripheral>)this.peripherls;
 
+        // One of my biggest mistakes. I was returned this.OverallPerformance instead of base.OverallPerfomance and that causes StackOverflow
         public override double OverallPerformance
         {
             get
@@ -37,7 +38,7 @@ namespace OnlineShop.Models.Products.Computers
         }
 
 
-        
+        // One of my biggest mistakes. I was returned this.Price instead of base.Price and that causes StackOverflow
         public override decimal Price
         {
             get
