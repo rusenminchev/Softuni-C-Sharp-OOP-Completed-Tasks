@@ -9,7 +9,6 @@ namespace EasterRaces.Models.Drivers.Entities
     public class Driver : IDriver
     {
         private string name;
-        private int numberOfWins;
 
         public Driver(string name)
         {
@@ -34,11 +33,10 @@ namespace EasterRaces.Models.Drivers.Entities
         }
 
         public ICar Car { get; private set; }
-       
-
+        
         public int NumberOfWins { get; private set; }
 
-        public bool CanParticipate { get; private set; } = false;
+        public bool CanParticipate => this.Car != null;
 
         public void AddCar(ICar car)
         {
@@ -48,12 +46,11 @@ namespace EasterRaces.Models.Drivers.Entities
             }
 
             this.Car = car;
-            this.CanParticipate = true;
         }
 
         public void WinRace()
         {
-            this.numberOfWins++;
+            this.NumberOfWins++;
         }
     }
 }

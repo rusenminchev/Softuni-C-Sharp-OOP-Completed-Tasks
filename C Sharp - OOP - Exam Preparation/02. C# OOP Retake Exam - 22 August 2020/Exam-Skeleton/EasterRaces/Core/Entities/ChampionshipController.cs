@@ -29,12 +29,13 @@ namespace EasterRaces.Core.Entities
         public string AddCarToDriver(string driverName, string carModel)
         {
             IDriver driver = this.drivers.GetByName(driverName);
-            ICar car = this.cars.GetByName(carModel);
 
             if (driver == null)
             {
                 throw new InvalidOperationException($"Driver {driverName} could not be found.");
             }
+
+            ICar car = this.cars.GetByName(carModel);
 
             if (car == null)
             {
@@ -49,12 +50,13 @@ namespace EasterRaces.Core.Entities
         public string AddDriverToRace(string raceName, string driverName)
         {
             IRace race = this.races.GetByName(raceName);
-            IDriver driver = this.drivers.GetByName(driverName);
 
             if (race == null)
             {
                 throw new InvalidOperationException($"Race {raceName} could not be found.");
             }
+
+            IDriver driver = this.drivers.GetByName(driverName);
 
             if (driver == null)
             {
@@ -132,13 +134,12 @@ namespace EasterRaces.Core.Entities
                 throw new InvalidOperationException($"Race {raceName} cannot start with less than 3 participants.");
             }
 
-
-            StringBuilder sb = new StringBuilder();
-
             var fastestDrivers = race.Drivers
                 .OrderByDescending(d => d.Car.CalculateRacePoints(race.Laps))
                 .Take(3)
                 .ToList();
+
+            StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"Driver {fastestDrivers[0].Name} wins {raceName} race.");
 

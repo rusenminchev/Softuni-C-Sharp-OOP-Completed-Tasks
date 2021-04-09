@@ -64,14 +64,14 @@ namespace EasterRaces.Models.Races.Entities
                 throw new ArgumentNullException("Driver cannot be null.");
             }
 
-            if (driver.CanParticipate == false)
+            if (!driver.CanParticipate)
             {
                 throw new ArgumentException($"Driver {driver.Name} could not participate in race.");
             }
 
             if (this.drivers.Any(d => d.Name == driver.Name))
-            { 
-            throw new ArgumentNullException($"Driver {driver.Name} is already added in {this.Name} race.");  
+            {
+                throw new ArgumentNullException($"Driver {driver.Name} is already added in {this.Name} race.");
             }
 
             this.drivers.Add(driver);
