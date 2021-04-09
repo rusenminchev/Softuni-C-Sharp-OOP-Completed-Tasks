@@ -15,6 +15,7 @@ namespace EasterRaces
             //IWriter writer = new ConsoleWriter();
 
             //За по-лесно и по-четимо локално нестване на изходните данни си правим StringBuilderWriter().
+            //За judge този ред се трие, а горният се откоментира
             IWriter writer = new StringBuilderWriter();
 
             Engine enigne = new Engine(controller, reader, writer);
